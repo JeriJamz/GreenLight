@@ -1,0 +1,23 @@
+This is some notes over Go
+
+im pretty sure this is OOJ
+You can basically make a whole program on function
+
+import EX()>
+     func Hello(name string) string
+     Hello - is the function name
+     #the first string 
+     string - the parameter type
+     string - the return type #this will be fun
+
+In go := is a short cut to declaring a var and init
+
+if im reading this right this is the long verison:
+     import Ex()>
+	var message string #this is the long way of declaring a string
+	message = fmt.Sprintf("Hi, %v. Welcome!", name) #when this is call itll print this
+     Exit()<
+
+ima assume that Sprintf("") is tha std print function
+they dont call the programs programs they call em modules
+  
