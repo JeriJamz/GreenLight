@@ -1,0 +1,70 @@
+#*Its been a while*#
+
+This will be going over how go can help with Network set up
+
+Networking:
+    "Network" is how a system of computers communicate:
+	A Network can b jus two computers or more
+    Then end part of these systems are called host
+    "LAN" is Local Area Network:
+	Think more like a bunch of computers hooked up to one server
+    "WAN" is a Wide Area Network:
+	These are computers around a larger area:
+`	    Like a city.
+    These are also known as:
+        MAN; Metropoltian Area Network
+        PAN; Personal Area Network
+	BAN; Body Area Network
+    The internet really 2 or more of these connection options
+    "Intranet" is an "Internet" with all these connections in a Local Area:
+	Typically this ran by one Administrator
+	#one thing the internet cant really do.
+
+GateWays:
+    This is a Generic term for anything that connects two machines:
+	"Ethernet", "Modem", "Copper Wire"... etc
+    "Repeaters" are really handy here:
+	It is a physically piece of hardware. That copies one machine information to another
+    A "Bridge" is where the data transfer is done:
+	This operates on the "Data Link", where it copies frames btw networks
+    A "Routers", operates on the Network Level:
+	Not only just moves the informations but also decides which routes to take
+
+Packet Encapsulation:
+    Communcations Btw OSI and TCP/IP stacks are done by sending packets of data:
+	Each layer, that has packets passed through, has it own Admin info it has to,
+	know about that layer:
+	    Its like its Autho
+   	The way it does this is by:
+	    Each packet has info added to its header, by ever layer it passes:
+		Whens its receiving info:
+		    Its is added to the top of the header(Like working from Bottem-up)
+    		When its giving out info: 
+		    The info is taken from the Bottem of the header
+
+Connections Models:
+    There has to be a connection for two computers to speak to each other
+    There are two ways:
+	(1) Connection-Oriented(wires...etc)
+	(2) Connectionless
+
+Connection Oriented:
+    A single connection is established for the session.#comms flow along cable
+    When the seesion is over the connection is terminated
+    #think of a phone call
+
+Connectionless:
+    Messages are sent Independent of each other:
+	Thing about is the messages may come out of order
+	#It depends on who get there first
+    "Connection-Oriented" can be stacked on top of connectionless stacks:
+	Think TCP over IP
+	Also UDP is a connections protocol. Its lighter than TCP:
+	    So generally its stacked on top of IP
+    These connection protocol is what shapes the internet today:
+	Why most things are IP/HTTP bc these are light weight options
+	Plus it would be insane for a whole bunch of TCP or Ethernet lines
+
+
+    
+    
