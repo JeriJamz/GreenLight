@@ -20,8 +20,8 @@ func main(){
 
 	}
 	dotAddr := os.Args[1]
-	ones, _ := strconv.Atoi(os.Args[2])
-	bits, _ := strconv.Atoi(os.Args[3])
+	ones, _ := strconv.Atoi(os.Args[2])//this is a str conversion I think. 
+	bits, _ := strconv.Atoi(os.Args[3])//Its the reason its gone read hex
 
 	addr := net.ParseIP(dotAddr)
 	if addr == nil{
@@ -30,8 +30,8 @@ func main(){
 		os.Exit(1)
 
 	}
-	mask := net.CIDRMask(ones, bits)
-	network := addr.Mask(mask)
+	mask := net.CIDRMask(ones, bits)//CIDR checks for iPv4 
+	network := addr.Mask(mask)// 
 	fmt.Println("Address is ", addr.String(),
 				"\nMask is Length is ", bits,
 				"\nLeading ones count is ",ones,
