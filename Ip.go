@@ -3,6 +3,8 @@ Some Its loooks pretty cool
 Some how Im teaching myself Go and Networkin at the same time
 */
 
+//Might have to comeback to this
+
 package main//need this to run and I/O Algo
 
 import(
