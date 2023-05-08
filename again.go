@@ -2,10 +2,12 @@ package main
 
 import(
 	"fmt"
+	"os"
 	)
 
 func main(){
 
+  var s, sep string
   name := "Jeri"
 
     fmt.Println("Hello World\n",
@@ -15,6 +17,14 @@ func main(){
 	fmt.Println(len("\nWat are Jooooeeees"),
 			"\nCan I ball " + "Can I chill?")
 	fmt.Println("On my Baby"[1])//idk ill debug when I wake`
+	for i := 1; i < len(os.Args); i++{
+
+		s += sep + os.Args[i]	
+		sep = " "
+
+	}
+
+	fmt.Println(s)
 }
 
 
