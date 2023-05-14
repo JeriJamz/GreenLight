@@ -2,16 +2,19 @@
 package main
 
 import("fmt"
-       "bufio"
        "os"
+       "bufio"
 )
 
 func main(){
 
-	input := bufio.NewScanner(os.Stdin)
+  input :=  bufio.NewScanner(os.Stdin)
+  Usr := input.Text()
+  //var s string
+    fmt.Println("Im trying to take input and print it out")
+	Usr//The problem here. Idk how to get the input yet.(User) Utility?
+	fmt.Println(Usr)
 
-	line := input.Text()
-	fmt.Println(line)
 
 }
 

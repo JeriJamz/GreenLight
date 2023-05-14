@@ -1,0 +1,20 @@
+#This is Part two of the Network Go notes
+
+Communcations Models:
+    In the distribution system. All the componets need a way to communcate
+    We use 2 primary models:
+	(1) "Message Passing"
+	(2) "Remote Procedure Calls"
+
+Message Passing:
+    Some non-procedural lingo are built on "Message Passing",
+    Concurrent Lingos mainly use it as a mechanism
+    #*Think the UNIX Pipeline. Ok so this is a pipeline where bytes are sent.
+other words messages or instructions. If you get creative you can send just about
+aything through this.Maybe and OS or a program. Never kno 
+*#
+    This is a very old mechanism of Distribution Systems:
+	Again, send the data down the line. Someone or you gone catch it and interpet it
+
+
+

@@ -1,0 +1,54 @@
+Mo Network notes
+
+This is really over socket level programming in go
+
+Ip are jus Binary
+TCP\UDP are the Thickest.(Yea I love my strippers) of the addressing way
+LAN is Locan Area Network and its mainly ethernet cords and everything talkin to one server
+WAN is more of the internet
+IP comes as a stack:
+    OSI is a 3 layer stack
+    TCP\UDP is a 4-layer stack
+    SCTP(Stream Control Transmission Protocol) is the newest craze, its meant to keep the internet in the sky:
+	Think more of starlink:
+	     DTN(Delay Tolerant Network) ima assume helps with the crazy delay it takes,
+	     When moving the waves around. Mind you were shootin them in space. Through the air.
+	     So it gonna be sum delay. Hopefully the aim good enough
+
+#*			SIDE NOTE
+
+	"App"("OSI" 5-7)<-->"TCP"(or)"UDP"(both, "OSI" 4)<-->"IP"("OSI" 3)<-->"H\W" InterFace("OSI" 1-2)
+
+*#
+
+"TCP" is more of connection oreiented, "UDP" is not:
+    "UDP"(User Datagram Protocol)
+
+*IP DATAGRAM:
+IPs are fun
+This is what makes it connectionless but unsecure
+when making the "IP" layer:
+    You have to give "IP" its own header:
+        In that header it going to contain the Starting Locations and Finishing Location(GeoLocation, Coordinates):
+	    See why its so important what we hid that.
+"IP" handles the routing(I think it make sure you hit the right ports)
+Also "IP" breakdown Large Datagrams into smaller ones and then on top of that it reassembles them
+
+*UDP:
+Also connectionless and Unsecure.
+It adds an checksum for the Contents on the Datagram and port numbers:
+    Other words it gives the "IP" Better instructions to follow
+This is more for Client-Server stuff
+
+*TCP:
+Supplies Logic to a reliable connection-orentend protocol above "IP".
+Its like a Virtual Bridge that allows two Process(Protocols?) to communicate.
+Also it uses port numbers to indentfy Host-Server-Services.(Like a Verify)
+
+#Ok Fun Part. Internet Addressing
+
+IPv4 is 32-bit unsigned int.#All the C Programmers gotta love this
+#*Oh yea Ip is what hooks you up to the internet.  You computer may not have an IP
+But your Modem does. Your phone dont but the Cell Tower does so*#
+
+

@@ -1,0 +1,21 @@
+#*These are go notes.Ima need some reminders
+Lets go over Data Type Decla:
+
+s := " ":
+    This is a short Decla. Its Cool for In-Function but not the best for package stuff,
+    This is BC a data type isn't declared:
+	Once you play around with numbers it gets really messy. 
+
+var s string:
+    This is more of a proper long decla in Go. This would be more appropate(idk),
+    for package level stuff. The "string" is a type of data. Like "long", "unsigned", "double". does this even have doubles?
+
+var s = "":
+    Ok now im going off wat the book says for this and the next,
+    This is a rare Type Decla. This say this is a good short hand for when you,
+    got multiple Vars.
+
+var s string = " ":
+    OK so with this. This is supposed to be a way to combine. The second and third method
+    Its great for when you got a crap ton of Varis, your in the middle of a function,
+    And you need to make sure some data is declared the right way
