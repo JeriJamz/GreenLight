@@ -38,15 +38,27 @@ type Email struct{
 
 func main(){
 
+    fmt.Println("Welcome\nPlease Enter your User Name and Password")
+    response = scanln()
 
+    
 
+    if("Yes"){
+
+	goto NewUsrLogin()
+	return 0
+    }
+    else(){
+
+	
+
+    }
 }
 
 func NewUsrLogin(fileName, key interface){
 
     fmt.Println("Hello New User. Please Type in your User Name")
     
-
     outFile, err := os.Create(fileName)
     checkError(err)
     encoder := gob.NewEncoder(outFile)
