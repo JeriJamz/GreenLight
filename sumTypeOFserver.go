@@ -11,7 +11,7 @@ import("fmt"
 
 type Usr struct{
 
-    UsrName UsrName
+    UsrName UserName
     Password Password
     Email []Email
 
@@ -21,6 +21,7 @@ type Usr struct{
 type UsrName struct{
 
     usrName string
+    Email []Email
 
 }
 
@@ -38,10 +39,8 @@ type Email struct{
 
 func main(){
 
-    fmt.Println("Welcome\nPlease Enter your User Name and Password")
+    fmt.Println("Welcome\nAre you a new user?")
     response = scanln()
-
-    
 
     if("Yes"){
 
@@ -50,22 +49,39 @@ func main(){
     }
     else(){
 
-	
+	goto Login
 
     }
+
+    login{
+
+	fmt.Println("Please enter your. User Name or Email")
+	UN = scanln()
+	fmt.Println("Please Enter Your Password.")
+	PW = scanln()	
+
+    }
+
 }
 
-func NewUsrLogin(fileName, key interface){
 
-    fmt.Println("Hello New User. Please Type in your User Name")
+func NewUsrLogin(){
+
+    NewUser := Usr{UsrName:UserName{usrName:"",Email:""},
+		   {Password:""}}
+
+    WriteNewUsrLogin(fileName, key interface){
+
+        fmt.Println("Hello New User. Please Type in your User Name")
     
-    outFile, err := os.Create(fileName)
-    checkError(err)
-    encoder := gob.NewEncoder(outFile)
-    err = encoder.Encode(key)
-    checkError(err)
-    outFile.Close()
+        outFile, err := os.Create(fileName)
+        checkError(err)
+        encoder := gob.NewEncoder(outFile)
+        err = encoder.Encode(key)
+        checkError(err)
+        outFile.Close()
 
+    }
 }
 
 func checkError(err error){
