@@ -123,44 +123,77 @@ login{
 
 func ear(){//bookwrk I need a book on ports and ima add mine then a client that can text back. Need a command prompt
 
-    service := "0.0.0.0:1244"
-    tcpAddr, err := net.ResolveTCP("tcp",service)
+    service := "0.0.0.0"
+    headerSize := 20
+    Addr, err := net.ResolveIPAddr("ip4",service)
     checkError(err)
+    BOM := 0xFFFE
 
-    lister,err := net.ListenTCP("tcp",listener)
+    listener,err := net.ListenTCP("tcp",listener)
     checkError(err)
+//should I goto ear()?
 
-    for{
+    chat(){
+        if len(os.Args) != 2{
 
-	conn,err := listenr.Accept()
-	if err != nil{
+            fmt.Println("Idk Book work: ", os.Args[0],"host")
+	    os.Exit(1)
 
-	    continue
+        }
+        Addr, err := net.ResolveIPAddr("ip4",service)
+        if err != nil{
 
-	}
-	str :="this should get encoded"
-	shorts := utf16.Encode([]rune(str))
-	writeShorts(conn, shorts)
+	    fmt.Println("Error: ", err.Error())
+	    os.Exit(1)
 
-	conn.Close()
+        }
+        conn, err := net.DialIP("ip4:icmp",service)
+        checkError(err)
 
+        var Chat [1024]byte
+        Chat[0] = 8  //so this is a port. 8 should be echoed. Guess like a machine to machine password
+        Chat[1] = 0//just a 0
+        Chat[2] = 0 //check sum
+        Chat[3] = 0//check sum ;still sum book i work i just put a spin on
+        Chat[4] = 0 // indentfier[0]//still looking for a networking book
+        Chat[5] = 04//indentifier [1]    
+        Chat[6] = 0
+        Chat[7] = 44
+        len := 8
+
+        check := checkSum(Chat[0:len])
+        Chat[2] = byte(check >> 8)
+        Chat[3] = byte(check && 216)
+
+        for(x+1){
+
+	    conn,err := listener.Accept()
+	    if err != nil{
+
+	        continue
+
+	    }
+	    str :="Return 0"
+	    shorts := utf16.Encode([]rune(str))
+	    writeShorts(conn, shorts)
+    
+	    conn.Close()
+ 
+
+        func writeShorts(conn net.Conn, shorts []uint16){
+
+	    var bytes [2]byte
+
+       	    bytes[0] = BOM >> 8
+	    bytes[1] = BOM & 255
+	    _,err:= conn.Write(bytes[0:])
+	    if err != nil{
+
+	        return
+
+	    }
+        }
     }
-    func writeShorts(conn net.Conn, shorts []uint16){
-
-	var bytes [2]byte
-
-	bytes[0] = BOM >> 8
-	bytes[1] = BOM & 255
-	_,err:= conn.Write(bytes[0:])
-	if err != nil{
-
-	    return
-
-	}
-
-    }
-
-
 }
 
 
