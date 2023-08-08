@@ -1,3 +1,4 @@
+//some bookwork in here
 import("fmt"
        "os"
        "net"
@@ -123,8 +124,41 @@ login{
 func ear(){
 
     service := "0.0.0.0:1244"
-    tcpAddr, err := net.Resolve
+    tcpAddr, err := net.ResolveTCP("tcp",service)
+    checkError(err)
 
+    lister,err := net.ListenTCP("tcp",listener)
+    checkError(err)
+
+    for{
+
+	conn,err := listenr.Accept()
+	if err != nil{
+
+	    continue
+
+	}
+	str :="this should get encoded"
+	shorts := utf16.Encode([]rune(str))
+	writeShorts(conn, shorts)
+
+	conn.Close()
+
+    }
+    func writeShorts(conn net.Conn, shorts []uint16){
+
+	var bytes [2]byte
+
+	bytes[0] = BOM >> 8
+	bytes[1] = BOM & 255
+	_,err:= conn.Write(bytes[0:])
+	if err != nil{
+
+	    return
+
+	}
+
+    }
 }
 
 
