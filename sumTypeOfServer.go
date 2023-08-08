@@ -109,7 +109,7 @@ login{
 	goto login
 
 	}
-    else if (PN != Logn){
+    else if (PW != Logn){
 
 	fmt.Println("Thats not the secrect passphrase")	    	
 	goto login
@@ -164,8 +164,9 @@ func ear(){//bookwrk I need a book on ports and ima add mine then a client that 
         check := checkSum(Chat[0:len])
         Chat[2] = byte(check >> 8)
         Chat[3] = byte(check && 216)
+	x = 1
 
-        for(x+1){
+        for(x = 1){
 
 	    conn,err := listener.Accept()
 	    if err != nil{
