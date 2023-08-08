@@ -117,11 +117,11 @@ login{
     else(){
 
 	fmt.Println("Welcome...")
-
+	goto ear()
     }
 }
 
-func ear(){
+func ear(){//bookwrk I need a book on ports and ima add mine then a client that can text back. Need a command prompt
 
     service := "0.0.0.0:1244"
     tcpAddr, err := net.ResolveTCP("tcp",service)
@@ -159,6 +159,8 @@ func ear(){
 	}
 
     }
+
+
 }
 
 
