@@ -48,46 +48,16 @@ func main(){
 	goto NewUsrLogin()
 	return 0
     }
-    else(){
+    else if(){
 
-	goto Login
+	goto Login()
 
     }
+    else if(){
+    
+	goto ear()
 
-    login{
-
-	fmt.Println("Please enter your. User Name or Email")
-	UN := scanln()
-	fmt.Println("Please Enter Your Password.")
-	PW := scanln()	
-
-	//need to add a file write function right here
-	Logn, err := os.Open("Login.txt")
-
-	if(UN != Logn){
-
-	    fmt.Println("Your Username is not in here\n"
-			"Try again")
-	    else if(UN == Logn){//can I do this?
-
-		fmt.Println("Ok, Welcome {UN}")
-
-	    }    
-	goto login
-
-	}
-	else if (PN != Logn){
-
-	    fmt.Println("Thats not the secrect passphrase")	    	
-	    goto login
-	}
-	else(){
-
-	    fmt.Println("Welcome...")
-
-	}
     }
-
 }
 
 
@@ -115,6 +85,48 @@ func NewUsrLogin(){
 
     }
 }
+
+login{
+
+    fmt.Println("Please enter your. User Name or Email")
+    UN := scanln()
+    fmt.Println("Please Enter Your Password.")
+    PW := scanln()	
+
+    //need to add a file write function right here
+    Logn, err := os.Open("Login.txt")
+
+    if(UN != Logn){
+
+	fmt.Println("Your Username is not in here\n"
+		    "Try again")
+	else if(UN == Logn){//can I do this?
+
+	    fmt.Println("Ok, Welcome {UN}")
+
+	}    
+	goto login
+
+	}
+    else if (PN != Logn){
+
+	fmt.Println("Thats not the secrect passphrase")	    	
+	goto login
+    }
+    else(){
+
+	fmt.Println("Welcome...")
+
+    }
+}
+
+func ear(){
+
+    service := "0.0.0.0:1244"
+    tcpAddr, err := net.Resolve
+
+}
+
 
 func checkError(err error){
 
