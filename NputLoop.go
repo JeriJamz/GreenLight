@@ -1,7 +1,8 @@
 package main
 import("fmt"
        "os"
-       "strings")
+       "strings"
+       "time")
 
 
 func main(){
@@ -18,11 +19,13 @@ func main(){
 
 	for true{
 
-	    fmt.Println("Enter <Exit> to terminate.\nChat:")
+	    fmt.Printf("Enter <Exit> to terminate.\nChat:")
 	    fmt.Scanln(&Chatput)
 
 	    if Chatput == "<Exit>"{//this works
 
+		    fmt.Println("Terminating The Program")
+		    time.Sleep(3 * time.Second)	
         	    os.Exit(1)
 
 	    }
@@ -30,7 +33,12 @@ func main(){
 
 	}
 
-    }	
+    }else{
+
+	fmt.Println("The Program is being Terminated")
+	os.Exit(1)
+
+    }
 
 }
 
