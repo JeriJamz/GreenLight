@@ -1,4 +1,5 @@
 //some bookwork in here
+package main
 import("fmt"
        "os"
        "net"
@@ -65,7 +66,7 @@ func main(){
 func NewUsrLogin(){
 
     NewUser := Usr{UsrName:UserName{usrName:"",Email:""},
-		   {Password:""}}
+		   {Password:Password{Password:""}}}
 
     WriteNewUsrLogin(fileName, key interface){
 
@@ -81,7 +82,7 @@ func NewUsrLogin(){
 	outFile := newUsrName
 	fmt.Println("Please Enter Your Password")
 	newPassword := scanln()
-	outfile := newPassword
+	outFile := newPassword
 	outFile.Close()
 
     }
@@ -131,7 +132,7 @@ func ear(){//bookwrk I need a book on ports and ima add mine then a client that 
 
     listener,err := net.ListenTCP("tcp",listener)
     checkError(err)
-//should I goto ear()?
+//should I goto chat()?
 
     chat(){
         if len(os.Args) != 2{
@@ -151,22 +152,38 @@ func ear(){//bookwrk I need a book on ports and ima add mine then a client that 
         checkError(err)
 
         var Chat [1024]byte
-        Chat[0] = 8  //so this is a port. 8 should be echoed. Guess like a machine to machine password
+        Chat[0] = 3//I think this will be a chat bit
         Chat[1] = 0//just a 0
         Chat[2] = 0 //check sum
         Chat[3] = 0//check sum ;still sum book i work i just put a spin on
         Chat[4] = 0 // indentfier[0]//still looking for a networking book
         Chat[5] = 04//indentifier [1]    
         Chat[6] = 0
-        Chat[7] = 44
+        Chat[7] = FFF
         len := 8
 
-        check := checkSum(Chat[0:len])
-        Chat[2] = byte(check >> 8)
-        Chat[3] = byte(check && 216)
+	var ping [512]byte
+	ping[0] = 8 //echo
+	ping[1] = 0
+	ping[2] = 0
+	ping[3] = 0
+	ping[4] = 0 
+	ping[5] = 1
+	ping[6] = 0
+	ping[7] = 1
+	len := 8
+
+        Chatcheck := checkSum(Chat[0:len])
+        Chat[1] = byte(Chatcheck >> 8)
+        Chat[2] = byte(Chatcheck && 216)
+	
+	pingCheck := checkSum(ping[0:len])
+	ping[2] = byte(pingcheck >> 8)
+	ping[3] = byte(pingCheck && 256)
+
 	x = 1
 
-        for(x = 1){
+        if(x = 1){
 
 	    conn,err := listener.Accept()
 	    if err != nil{
@@ -209,3 +226,9 @@ func checkError(err error){
 
 }
 
+//lets see if I can make a user input for the chat
+func chatBar(){
+
+    
+
+}
