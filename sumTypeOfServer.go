@@ -8,7 +8,9 @@ import("fmt"
        "log"
        "encoding/json"
        "encoding/gob"
-       "bufio")
+       "bufio"
+       "time"
+       "strings")
 
 
 
@@ -212,6 +214,9 @@ func ear(){//bookwrk I need a book on ports and ima add mine then a client that 
 	    }
         }
     }
+
+    goto Lips
+
 }
 
 
@@ -227,8 +232,46 @@ func checkError(err error){
 }
 
 //lets see if I can make a user input for the chat
-func chatBar(){
+func Lips(){
 
-    
+    var Ntry strings
+
+    fmt.Printf("Welcome to yada, Do you want to chat\nYes or No")    
+    fmt.Scanln(&Ntry)
+
+    if Ntry == strings.ToLower("Yes"){
+
+	fmt.Println("Welcome to Chat")
+	var Chatput string
+
+    	for true{
+
+	    fmt.Printf("Enter <Exit> to Terminate The Program\nChat:")
+	    fmt.Scanln(&Chatput)
+
+	    if Chatput ==  "<Exit>"{
+
+		fmt.Println("Terminating Program")
+		time.Sleep(3 * time.Second)
+		os.Exit(1)
+
+	    }
+
+	}
+
+    }else{
+
+	fmt.Println("Terminating the Program")
+	time.Sleep(3 * time.Second)
+
+    }
 
 }
+
+
+
+
+
+
+
+
